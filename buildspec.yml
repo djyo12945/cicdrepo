@@ -13,8 +13,7 @@ phases:
     commands:
      
     - echo "deployed to s3"
-
- artifacts:
+artifacts:
    files:
     _ '**/*'
     base-directory: base_dir
