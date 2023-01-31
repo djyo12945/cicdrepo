@@ -1,19 +1,22 @@
 version: 0.2
 
 phases:
- 
+  install:
+    runtime-versions:
+      java: corretto11
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
   build:
-   
     commands:
-
-    - echo "This is buid phase."
-   
+      - echo Build started on `date`
+      - mvn install
   post_build:
-  
     commands:
-     
-    -echo "deployed to s3"
-
- artifacts:
-   files:
-    _ '**/*'
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - target/messageUtil-1.0.jar
+    base-directory: base_dir
+    name: build-artifact-name
+    discard-paths: no
